@@ -1,67 +1,95 @@
-function imprimirLinea(){
-    console.log("---------------");
-}
+ // Lista de productos disponibles en la tienda
+ var productos = [
+    { nombre: 'Camisa', precio: 300 },
+    { nombre: 'Pantalón', precio: 500 },
+    { nombre: 'Zapatos', precio: 800 },
+    { nombre: 'Sombrero', precio: 200 }
+];
 
-function horizontal(num){
-    let resultado = "";
-    for (let index = 0; index < num; index++) {
-        resultado += "+\n";
+// Carrito de compras (arreglo vacío)
+var carrito = [];
+
+
+//Funcion para agregar un producto a la lista productos
+function agregarProducto(){
+    let nombreProducto;
+    let precioProducto;
+
+    do{
+    nombreProducto = prompt("¿Cuál es el nombre del producto a agregar?");
+    precioProducto = parseFloat(prompt("¿Cuál es el precio del producto a agregar?"));
+
+    if(!nombreProducto){
+        alert("El nombre del producto es vacio")
+    }else if (isNaN(precioProducto)){
+        alert("El precio del producto es vacio")
+    }else{
+        productos.push({
+            nombre: nombreProducto,
+            precio: precioProducto
+        });
+        alert("Producto añadido con exito");
     }
-    console.log(resultado);
+    }while(!nombreProducto || isNaN(precioProducto));
 }
 
-function vertical(num){
-    let resultado = "";
-    for (let index = 0; index < num; index++) {
-        resultado += "+ ";
+// Función para mostrar el menú de productos
+function mostrarMenu() {
+    var menu = "Seleccione un producto para agregar al carrito:\n";
+    for (var i = 0; i < productos.length; i++) {
+        menu += (i + 1) + ". " + productos[i].nombre + " - $" + productos[i].precio + "\n";
     }
-    console.log(resultado);
+    menu += (productos.length + 1) + ". Agregar producto a la lista\n";
+    menu += (productos.length + 2) + ". Ver Carrito y Total\n";
+    menu += (productos.length + 3) + ". Salir\n";
+    return menu;
 }
 
-function tablasMultiplicar(){
-    let resultado = "";
-    for (let index = 1; index < 11; index++) {
-        for (let index2 = 1; index2 < 11; index2++) {
-            resultado += index + " x " + index2 + " = " + (index * index2) + "\n";
+// Función para agregar un producto al carrito
+function agregarAlCarrito(index) {
+    var productoSeleccionado = productos[index];
+    carrito.push(productoSeleccionado);
+    console.log('Producto "' + productoSeleccionado.nombre + '" agregado al carrito.');
+}
+
+// Función para mostrar el carrito y el total
+function mostrarCarritoYTotal() {
+    if (carrito.length === 0) {
+        alert("El carrito está vacío.");
+    } else {
+        var mensajeCarrito = "Carrito de compras:\n";
+        var total = 0;
+        for (var i = 0; i < carrito.length; i++) {
+            mensajeCarrito += (i + 1) + ". " + carrito[i].nombre + " - $" + carrito[i].precio + "\n";
+            total += carrito[i].precio;
         }
-        resultado += "\n";
+        mensajeCarrito += "\nTotal: $" + total;
+        alert(mensajeCarrito);
     }
-    console.log(resultado);
 }
 
-function frutas(){
-    let resultado = "";
-    const frutas = ["manzana", "plátano", "naranja", "fresa", "piña", "mango", "uva", "cereza", "kiwi", "pera"];
-    frutas.forEach((fruta, indice) => {
-        resultado += (indice+1) + ". " + fruta + "\n"
-    });
-    console.log(resultado);
-}
+// Bucle principal de la tienda
+var opcion;
+do {
+    opcion = prompt(mostrarMenu());
 
-horizontal(5);
-imprimirLinea();
-vertical(5);
-imprimirLinea();
-tablasMultiplicar();
-imprimirLinea();
-frutas();
-imprimirLinea();
-cuadrado(15);
+    // Convertir la opción ingresada a un número
+    opcion = Number(opcion);
 
-function cuadrado(num){
-    let resultado = "";
-    for (let index = 0; index < num; index++) {
-        for (let index2 = 0; index2 < num; index2++) {
-           if(index2 === num-1){
-            resultado += "+\n";
-           }else{
-                if(index2 === 0 || (index === 0 || index === num-1)){
-                    resultado += "+ ";
-                }else{
-                    resultado += "  ";
-                }
-           }
-        }
+    // Verificar si la opción es válida
+    if (isNaN(opcion) || opcion < 1 || opcion > productos.length + 3) {
+        alert("Opción no válida, por favor intenta de nuevo.");
+    } else if (opcion >= 1 && opcion <= productos.length) {
+        // Si la opción es válida y corresponde a un producto, agregar al carrito
+        agregarAlCarrito(opcion - 1);
+    } else if (opcion === productos.length + 1) {
+        // Si elige ver el carrito y el total
+        agregarProducto();
+    } else if (opcion === productos.length + 2) {
+        // Si elige ver el carrito y el total
+        mostrarCarritoYTotal();
     }
-    console.log(resultado);
-}
+    
+} while (opcion !== productos.length + 3); // El bucle continúa hasta que elige "Salir"
+
+alert("Gracias por visitar la tienda.");
