@@ -1,0 +1,16 @@
+#contenedor{
+    width: 375px;
+    height: 420px;
+    margin: auto;
+    background-color: aquamarine;
+}
+
+#text{
+    width: 365px;
+    height: 50px;
+}
+
+.boton{
+    width: 90px;
+    height: 90px;
+}
