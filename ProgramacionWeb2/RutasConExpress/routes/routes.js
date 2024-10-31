@@ -11,7 +11,7 @@ routes.get('/inicio', (req, res) => {
 });
 
 routes.get('/qr', (req, res) => {
-    
+    res.sendFile(path.join(__dirname, '../public','/views', 'qr.html'));
 });
 
 module.exports = routes
