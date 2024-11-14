@@ -1,0 +1,16 @@
+{
+  "name": "inicioproyecto",
+  "version": "1.0.0",
+  "description": "Conexión a Base de Datos",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis Gustavo Santillan Garcia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mysql2": "^3.11.4",
+    "node": "^18.20.5"
+  }
+}
