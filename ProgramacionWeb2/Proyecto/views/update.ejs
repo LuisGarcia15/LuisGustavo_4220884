@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD con Node.js y MySQL</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h2>Agregar Nuevo Usuario</h2>
+    <form action="/update" method="POST">
+
+        <input type="text" id="id" name="id" hidden value="<%= alumno.id_fmr %>"><br><br>
+
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" required value="<%= alumno.nombres_fmr %>" pattern="[A-Za-z\s]+$"><br><br>
+
+        <label for="apellidoPaterno">Apellido Paterno:</label>
+        <input type="text" id="apellidoPaterno" name="apellidoPaterno" required value="<%= alumno.apellido_paterno_fmr %>" pattern="[A-Za-z]+$"><br><br>
+
+        <label for="apellidoMaterno">Apellido Materno:</label>
+        <input type="text" id="apellidoMaterno" name="apellidoMaterno" required value="<%= alumno.apellido_materno_fmr %>" pattern="[A-Za-z]+$"><br><br>
+
+        <label for="numeroCuenta">Número de Cuenta:</label>
+        <input type="number" id="numeroCuenta" name="numeroCuenta" required value="<%= alumno.numero_cuenta_fmr %>" pattern="^[0-9]{9}$"><br><br>
+
+        <label for="numeroCelular">Número de Celular:</label>
+        <input type="tel" id="numeroCelular" name="numeroCelular" required value="<%= alumno.numero_celular_fmr %>" pattern="^[0-9]{10}$"><br><br>
+
+        <label for="correoElectronico">Correo Electrónico:</label>
+        <input type="email" id="correoElectronico" name="correoElectronico" required value="<%= alumno.correo_electronico_fmr %>"><br><br>
+
+        <% if (alumno.alumno_activo_fmr) { %>
+            <label for="valido">¿Es válido?:</label>
+            <select id="valido" name="valido" required>
+                <option value="" disabled>Selecciona una opción</option> 
+                <option value=1 selected>TRUE</option>
+                <option value=0>FALSE</option>
+            </select><br><br>
+          <% } else { %>
+            <label for="valido">¿Es válido?:</label>
+            <select id="valido" name="valido" required>
+                <option value="" disabled>Selecciona una opción</option> 
+                <option value=1>TRUE</option>
+                <option value=0 selected>FALSE</option>
+            </select><br><br>
+          <% } %>
+
+        <button type="submit">Actualizar</button>
+    </form>
+</body>
+</html>
