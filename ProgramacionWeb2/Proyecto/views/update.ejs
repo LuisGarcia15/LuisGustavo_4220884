@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD con Node.js y MySQL</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Actualizar estudiante</title>
+    <link rel="stylesheet" href="/css/styleUpdate.css">
+    <link rel="icon" href="https://w7.pngwing.com/pngs/675/451/png-transparent-school-of-engineering-unam-national-autonomous-university-of-mexico-unam-faculty-of-accounting-and-administration-doctor-of-philosophy-escudo-miscellaneous-text-logo-thumbnail.png">
 </head>
 <body>
-    <h2>Agregar Nuevo Usuario</h2>
-    <form action="/update" method="POST">
+    <div class="tituloPrincipal">
+        <h2>Actualizar estudiante</h2>
+    </div>
+    <form action="/update" method="POST" class="formulario">
 
         <input type="text" id="id" name="id" hidden value="<%= alumno.id_fmr %>"><br><br>
 
         <label for="nombres">Nombres:</label>
-        <input type="text" id="nombres" name="nombres" required value="<%= alumno.nombres_fmr %>" pattern="[A-Za-z\s]+$"><br><br>
+        <input type="text" id="nombres" name="nombres" required value="<%= alumno.nombres_fmr %>" pattern="[A-Za-z\s]+$" placeholder="Ingresa tu nombre(s)"><br><br>
 
         <label for="apellidoPaterno">Apellido Paterno:</label>
-        <input type="text" id="apellidoPaterno" name="apellidoPaterno" required value="<%= alumno.apellido_paterno_fmr %>" pattern="[A-Za-z]+$"><br><br>
+        <input type="text" id="apellidoPaterno" name="apellidoPaterno" required value="<%= alumno.apellido_paterno_fmr %>" pattern="[A-Za-z]+$" placeholder="Ingresa tu apellido paterno"><br><br>
 
         <label for="apellidoMaterno">Apellido Materno:</label>
-        <input type="text" id="apellidoMaterno" name="apellidoMaterno" required value="<%= alumno.apellido_materno_fmr %>" pattern="[A-Za-z]+$"><br><br>
+        <input type="text" id="apellidoMaterno" name="apellidoMaterno" required value="<%= alumno.apellido_materno_fmr %>" pattern="[A-Za-z]+$" placeholder="Ingresa tu apellido materno"><br><br>
 
         <label for="numeroCuenta">Número de Cuenta:</label>
-        <input type="number" id="numeroCuenta" name="numeroCuenta" required value="<%= alumno.numero_cuenta_fmr %>" pattern="^[0-9]{9}$"><br><br>
+        <input type="number" id="numeroCuenta" name="numeroCuenta" required value="<%= alumno.numero_cuenta_fmr %>" pattern="^[0-9]{9}$" placeholder="Ingresa tu número de cuenta"><br><br>
 
         <label for="numeroCelular">Número de Celular:</label>
-        <input type="tel" id="numeroCelular" name="numeroCelular" required value="<%= alumno.numero_celular_fmr %>" pattern="^[0-9]{10}$"><br><br>
+        <input type="tel" id="numeroCelular" name="numeroCelular" required value="<%= alumno.numero_celular_fmr %>" pattern="^[0-9]{10}$" placeholder="Ingresa tu número celular"><br><br>
 
         <label for="correoElectronico">Correo Electrónico:</label>
-        <input type="email" id="correoElectronico" name="correoElectronico" required value="<%= alumno.correo_electronico_fmr %>"><br><br>
+        <input type="email" id="correoElectronico" name="correoElectronico" required value="<%= alumno.correo_electronico_fmr %>" placeholder="Ingresa tu correo electrónico"><br><br>
 
         <% if (alumno.alumno_activo_fmr) { %>
-            <label for="valido">¿Es válido?:</label>
+            <label for="valido">¿Está inscrito?:</label>
             <select id="valido" name="valido" required>
                 <option value="" disabled>Selecciona una opción</option> 
                 <option value=1 selected>TRUE</option>
@@ -46,7 +49,9 @@
             </select><br><br>
           <% } %>
 
-        <button type="submit">Actualizar</button>
+          <div class="contenedorBotonActualizar">
+            <button type="submit" class="botonActualizar">Actualizar</button>
+        </div>
     </form>
 </body>
 </html>

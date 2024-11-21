@@ -3,31 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD con Node.js y MySQL</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Agregar nuevo estudiante</title>
+    <link rel="stylesheet" href="/css/styleInsert.css">
+    <link rel="icon" href="https://w7.pngwing.com/pngs/675/451/png-transparent-school-of-engineering-unam-national-autonomous-university-of-mexico-unam-faculty-of-accounting-and-administration-doctor-of-philosophy-escudo-miscellaneous-text-logo-thumbnail.png">
 </head>
 <body>
-    <h2>Agregar Nuevo Usuario</h2>
-    <form action="/add" method="POST">
+    <div class="tituloPrincipal">
+        <h2>Agregar Nuevo Estudiante</h2>
+    </div>
+    <form action="/add" method="POST" class="formulario">
         <label for="nombres">Nombres:</label>
-        <input type="text" id="nombres" name="nombres" required pattern="[A-Za-z\s]+$"><br><br>
+        <input type="text" id="nombres" name="nombres" required pattern="[A-Za-z\s]+$" placeholder="Ingresa tu nombre(s)"><br><br>
 
         <label for="apellidoPaterno">Apellido Paterno:</label>
-        <input type="text" id="apellidoPaterno" name="apellidoPaterno" required pattern="[A-Za-z]+$"><br><br>
+        <input type="text" id="apellidoPaterno" name="apellidoPaterno" required pattern="[A-Za-z]+$" placeholder="Ingresa tu apellido paterno"><br><br>
 
         <label for="apellidoMaterno">Apellido Materno:</label>
-        <input type="text" id="apellidoMaterno" name="apellidoMaterno" required pattern="[A-Za-z]+$"><br><br>
+        <input type="text" id="apellidoMaterno" name="apellidoMaterno" required pattern="[A-Za-z]+$" placeholder="Ingresa tu apellido materno"><br><br>
 
         <label for="numeroCuenta">Número de Cuenta:</label>
-        <input type="number" id="numeroCuenta" name="numeroCuenta" required pattern="^[0-9]{9}$"><br><br>
+        <input type="tel" id="numeroCuenta" name="numeroCuenta" required pattern="^[0-9]{9}$" placeholder="Ingresa tu numero de cuenta"><br><br>
 
         <label for="numeroCelular">Número de Celular:</label>
-        <input type="tel" id="numeroCelular" name="numeroCelular" required pattern="^[0-9]{10}$"><br><br>
+        <input type="tel" id="numeroCelular" name="numeroCelular" required pattern="^[0-9]{10}$" placeholder="Ingresa tu número telefonico"><br><br>
 
         <label for="correoElectronico">Correo Electrónico:</label>
-        <input type="email" id="correoElectronico" name="correoElectronico" required><br><br>
+        <input type="email" id="correoElectronico" name="correoElectronico" required placeholder="Ingresa tu correo electrónico"><br><br>
 
-        <button type="submit">Agregar</button>
+        <div class="contenedorBotonAgregar">
+            <button type="submit" class="botonAgregar">Agregar</button>
+        </div>
+        
     </form>
 </body>
 </html>
