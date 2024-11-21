@@ -21,11 +21,26 @@ label{
 .contenedorBotonAgregar{
     width: 130px;
     margin: auto;
+    display: inline;
   }
 
-.botonAgregar{
-    width: 90%;
+.boton{
+    width: 30%;
     height: 40px;
+    margin: 0px 30px;
     font-size: x-large;
     border-radius: 10px;
+}
+
+.botonCancelar{
+    display: inline-block;
+    padding: 10px 20px;
+    width: 20%;
+    background-color: #f0f0f0;
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
 }

@@ -26,11 +26,13 @@ select{
 .contenedorBotonActualizar{
     width: 130px;
     margin: auto;
+    display: inline;
   }
 
-.botonActualizar{
-    width: 100%;
+.boton{
+    width: 30%;
     height: 40px;
+    margin: 0px 30px;
     font-size: x-large;
     border-radius: 10px;
 }
